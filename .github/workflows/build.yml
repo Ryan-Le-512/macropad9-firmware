@@ -1,0 +1,36 @@
+name: Build Macropad9 firmware
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/qmk/qmk_cli
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+        with:
+          path: macropad
+
+      - name: Clone vial-qmk
+        run: |
+          git clone --depth 1 https://github.com/vial-kb/vial-qmk.git vial-qmk
+          cd vial-qmk
+          make git-submodule
+
+      - name: Copy keyboard definition into vial-qmk
+        run: cp -r macropad/keyboards/macropad9 vial-qmk/keyboards/
+
+      - name: Build
+        run: |
+          cd vial-qmk
+          make macropad9:vial
+
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: macropad9_vial_hex
+          path: vial-qmk/*.hex

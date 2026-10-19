@@ -1,0 +1,35 @@
+{
+    "manufacturer": "Ryan Le",
+    "keyboard_name": "Macropad9",
+    "maintainer": "Ryan-Le-512",
+    "url": "https://github.com/Ryan-Le-512",
+    "usb": {
+        "vid": "0xFEED",
+        "pid": "0x0009",
+        "device_version": "1.0.0"
+    },
+    "features": {
+        "encoder": true,
+        "extrakey": true,
+        "bootmagic": true
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"matrix": [0, 0], "x": 0, "y": 0},
+                {"matrix": [0, 1], "x": 1, "y": 0},
+                {"matrix": [0, 2], "x": 2, "y": 0},
+
+                {"matrix": [1, 0], "x": 0, "y": 1},
+                {"matrix": [1, 1], "x": 1, "y": 1},
+                {"matrix": [1, 2], "x": 2, "y": 1},
+
+                {"matrix": [2, 0], "x": 0, "y": 2},
+                {"matrix": [2, 1], "x": 1, "y": 2},
+                {"matrix": [2, 2], "x": 2, "y": 2},
+
+                {"matrix": [2, 3], "x": 3.5, "y": 2}
+            ]
+        }
+    }
+}
